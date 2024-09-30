@@ -68,6 +68,8 @@
             guesses--;
             if(guesses == 0){
                 document.getElementById('guess-button').disabled = true;
+                document.getElementById('guess-button').value = "Reset";
+                document.getElementById('guess-button').id = 'reset-button';
             }
 
             let guess = document.getElementById('guess-input').value;
@@ -80,6 +82,13 @@
             else if (guess < number){
                 document.getElementById('message').innerHTML = "Too Low!";
             }
+        });
+
+        document.getElementById('reset-button').addEventListener('click', function () {
+            number = Math.floor(Math.random() * 10) + 1;
+            guesses = 3;
+            document.getElementById('reset-button').value = "Submit";
+            document.getElementById('reset-button').id = 'guess-button';
         });
 
     </script>
