@@ -56,7 +56,7 @@
     <script>
         // JavaScript code goes here   
         let number = Math.floor(Math.random() * 10) + 1;
-        //let guesses = 3;
+        let guesses = 3;
 
         // Added a click listener to the button (will be covered more in zyBook 7.4), 
         // for now just use the following which:
@@ -65,8 +65,12 @@
         // executes the code in the body of the anonymous function
         document.getElementById('guess-button').addEventListener('click', function () {
             //function body -- any code here will be executed when the registered event is triggered.
+            guesses--;
+            if(guesses == 0){
+                document.getElementById('guess-button').disabled = true;
+            }
+
             let guess = document.getElementById('guess-input').value;
-            //guesses--;
             if (guess == number){
                 document.getElementById('message').innerHTML = "Correct!";
             }
